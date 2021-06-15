@@ -1,0 +1,17 @@
+version: "3.5"
+
+services:
+  traefik:
+    image: kth-traefik:latest
+    # image: traefik:1.7.4-alpine
+    command: --entrypoints='Name:https Address::443 TLS:/kth-certs/cert.pem,/kth-certs/key.pem' \
+      --defaultentrypoints=https \
+      --accessLog \
+      --ping \
+      --docker \
+      --docker.swarmMode \
+      --docker.watch \
+      --api \
+      --api.dashboard=false \
+      --metrics \
+      --metrics.prometheus

@@ -1,0 +1,44 @@
+entrypoints:
+  websecure:
+    address: :443
+    http:
+      tls: {}
+  metrics:
+    address: :8080
+
+providers:
+  docker:
+    swarmmode: true
+    network: proxy
+    exposedByDefault: false
+  file:
+    filename: /etc/traefik/traefik.yml
+    watch: true
+
+#ping: {}
+
+accessLog: {}
+
+api:
+  insecure: false
+  dashboard: true
+
+log:
+  level: INFO
+
+metrics:
+  prometheus:
+    entryPoint: metrics
+
+tls:
+  certificates:
+    - certFile: /kth-certs/cert.pem
+      keyFile: /kth-certs/key.pem
+  options:
+    default:
+      minVersion: VersionTLS12
+  stores:
+    default:
+      defaultCertificate:
+        certFile: /kth-certs/cert.pem
+        keyFile: /kth-certs/key.pem
