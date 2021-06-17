@@ -1,4 +1,4 @@
-FROM traefik:v2.3.4
+FROM traefik:v2.3.2
 
 RUN mkdir /kth-certs
 

@@ -3,6 +3,8 @@ entrypoints:
     address: :443
     http:
       tls: {}
+    forwardedHeaders:
+      insecure: true
   metrics:
     address: :8080
 
