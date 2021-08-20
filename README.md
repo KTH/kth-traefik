@@ -1,8 +1,8 @@
-# KTH Traefik
+# KTH Traefik ![Continous Integration](https://github.com/KTH/kth-azure-app/actions/workflows/main.yml/badge.svg)
 
 This is the proxy that answers to incomming public trafic to a Docker Swarm Mode cluster. The HTTP requests passes a Azure Load Balancer that listens on the clusters public IP and port 443.
 
-The image that is build by [:whale: Dockerfile](https://gita.sys.kth.se/Infosys/kth-traefik/blob/master/Dockerfile) is a [Traefik image](https://traefik.io/), but when the container starts it reads the environment variables `TRAEFIK_CERT_PEM` and `TRAEFIK_CERT_KEY` and writes these to file in the container instance. These two envs contains the TLS certiificate that are defined as host names for the public IPv4 addresses we use.
+The image that is build by :whale: Dockerfile is a [Traefik image](https://traefik.io/), but when the container starts it reads the environment variables `TRAEFIK_CERT_PEM` and `TRAEFIK_CERT_KEY` and writes these to file in the container instance. These two envs contains the TLS certiificate that are defined as host names for the public IPv4 addresses we use.
 
 _At time of writing these are:_
 
